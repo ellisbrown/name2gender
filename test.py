@@ -1,6 +1,5 @@
 import math
 import time
-from progressbar import *
 import argparse
 import torch
 import torch.autograd as autograd
@@ -15,10 +14,10 @@ def str2bool(v):
 parser = argparse.ArgumentParser(description='Name2Gender RNN Training')
 parser.add_argument('--batch_size', default=32, type=int, help='Batch size for training')
 #parser.add_argument('--resume', default=None, type=str, help='Resume from checkpoint')
-parser.add_argument('--num_workers', default=2, type=int, help='Number of workers used in dataloading')
+parser.add_argument('--num_workers', default=4, type=int, help='Number of workers used in dataloading')
 #parser.add_argument('--cuda', default=True, type=str2bool, help='Use cuda to train model')
 parser.add_argument('--log_iters', default=False, type=str2bool, help='Print the loss after each batch')
-parser.add_argument('--weights', default='weights/gender_rnn_epoch22000.pth', help='Weight state dict to load for testing')
+parser.add_argument('--weights', default='weights/gender_rnn_epoch47000.pth', help='Weight state dict to load for testing')
 args = parser.parse_args()
 
 
@@ -113,7 +112,7 @@ def test(dataset=testset, verbose=log_iters):
                 output = _evaluate(name_tensor)
                 topv, topi = output.data.topk(k=1, dim=1, largest=True)
                 guess = all_genders[topi[0][0]]
-                correct = '✓' if guess == gt else '✗ (%s)' % gt
+                correct = '!' if guess == gt else 'X (%s)' % gt
                 if verbose: print("\t%s -> %s %s " % (name, guess, correct))
                 batch_acc += 1 if guess == gt else 0
             print("%.2f%% minibatch acc: %.4f (%s)" % (batch/(len(dataset) / batch_size), batch_acc / len(names_tensor), time_since(start)))
@@ -122,7 +121,7 @@ def test(dataset=testset, verbose=log_iters):
             break
     acc = cum / len(dataset)
     print()
-    print("TOTAL: %d/%d (%.4d%%)" % (cum, len(dataset), acc))
+    print("TOTAL: %d/%d (%.4f%%)" % (cum, len(dataset), acc*100))
     return acc
     
 if __name__ == '__main__':
