@@ -3,9 +3,9 @@ import unicodedata
 import csv
 import string
 import time
-from os.path import expanduser
+from os import getcwd
 
-PROJECT_DIR = expanduser("~") + "/name2gender/"
+PROJECT_DIR = getcwd().replace("naive_bayes","")
 
 def str2bool(v):
     return v.lower() in ('yes', 'true', 't', 'y', '1')
@@ -39,10 +39,10 @@ def _gender_features(name):
     return features
 
 # DATASETS
-NLTK_MBEJDA_FN = "U:\name2gender\nltk_mbejda.csv"
-NLTK_MBEJDA_BLK_FN = "U:\name2gender\nltk_mbejda_blk.csv"
-NLTK_MBEJDA_BLK_MFRAN_FN = "U:\name2gender\nltk_mbejda_blk_mfran.csv"
-SHUFFLED_DATASET_FN = PROJECT_DIR + "/data/name_gender_dataset.csv"
+NLTK_MBEJDA_FN = "data/nltk_mbejda.csv"
+NLTK_MBEJDA_BLK_FN = "data/nltk_mbejda_blk.csv"
+NLTK_MBEJDA_BLK_MFRAN_FN = "data/nltk_mbejda_blk_mfran.csv"
+SHUFFLED_DATASET_FN = PROJECT_DIR + "data/name_gender_dataset.csv"
 
 DATASET_FN = SHUFFLED_DATASET_FN # this is the dataset file used
 
@@ -118,5 +118,3 @@ ALL_LETTERS = string.ascii_lowercase
 ALL_GENDERS = ["male", "female"]
 N_LETTERS = len(ALL_LETTERS)
 N_GENDERS = len(ALL_GENDERS)
-
-
