@@ -7,6 +7,20 @@ from os import getcwd
 
 PROJECT_DIR = getcwd().replace("naive_bayes","")
 
+# DATASETS
+NLTK_MBEJDA_FN = "data/nltk_mbejda.csv"
+NLTK_MBEJDA_BLK_FN = "data/nltk_mbejda_blk.csv"
+NLTK_MBEJDA_BLK_MFRAN_FN = "data/nltk_mbejda_blk_mfran.csv"
+SHUFFLED_DATASET_FN = PROJECT_DIR + "data/name_gender_dataset.csv"
+
+DATASET_FN = SHUFFLED_DATASET_FN # this is the dataset file used
+
+TRAIN_SPLIT = 0.75
+VAL_SPLIT = 0
+
+# TEST_SPLIT = .25 # ASSUME Test = 1 - (train% + val%)
+
+# helpers
 def str2bool(v):
     return v.lower() in ('yes', 'true', 't', 'y', '1')
 
@@ -23,7 +37,7 @@ def time_since(since):
     s = now - since
     hours, rem = divmod(now-since, 3600)
     minutes, seconds = divmod(rem, 60)
-    return "{:0>2}h {:0>2}m {:0>2}s".format(int(hours),int(minutes),int(seconds))
+    return "{:0>2}h {:0>2}m {:0>2}s".format(int(hours), int(minutes), int(seconds))
 
 def _gender_features(name):
     features = {}
@@ -38,21 +52,7 @@ def _gender_features(name):
     features["suffix4"] = name[-4:]
     return features
 
-# DATASETS
-NLTK_MBEJDA_FN = "data/nltk_mbejda.csv"
-NLTK_MBEJDA_BLK_FN = "data/nltk_mbejda_blk.csv"
-NLTK_MBEJDA_BLK_MFRAN_FN = "data/nltk_mbejda_blk_mfran.csv"
-SHUFFLED_DATASET_FN = PROJECT_DIR + "data/name_gender_dataset.csv"
-
-DATASET_FN = SHUFFLED_DATASET_FN # this is the dataset file used
-
-# Accessors
-
-TRAIN_SPLIT = 0.75
-VAL_SPLIT = 0
-
-# TEST_SPLIT = .25 # ASSUME Test = 1 - (train% + val%)
-
+# data accessors
 def load_names(filename=DATASET_FN):
     """loads all names and genders from the dataset
 
@@ -110,10 +110,9 @@ def dataset_dicts(dataset=load_dataset()):
         gender_name.setdefault(gender, []).append(name)
     return name_gender, gender_name
 
-
+# constants
 TRAINSET, VALSET, TESTSET = split_dataset()
 
-# Manipulation
 ALL_LETTERS = string.ascii_lowercase
 ALL_GENDERS = ["male", "female"]
 N_LETTERS = len(ALL_LETTERS)
