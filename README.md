@@ -7,9 +7,9 @@ I have implemented a Naïve-Bayes approach and an Char-RNN approach, which are c
 ### Table of Contents
 - <a href='https://goo.gl/1dxe5A'>Medium post</a>
 - <a href='#naïve-bayes-naive_bayes'>Naïve Bayes</a>
-- <a href=‘#char-rnn-rnn’>Char-Rann</a>
-- <a href=‘#dataset-data’>Dataset</a>
-- <a href=‘#acknowledgement’>Acknowlegement</a>
+- <a href='#char-rnn-rnn'>Char-Rann</a>
+- <a href='#dataset-data'>Dataset</a>
+- <a href='#acknowledgement'>Acknowlegement</a>
 
 
 ## Naïve-Bayes [/naive_bayes](https://github.com/ellisbrown/name2gender/tree/master/naive_bayes)
