@@ -1,8 +1,15 @@
-# name2gender
+# Name2Gender
 
 Using character sequences in first names to predict gender. This is a quick exploration into the interesting problem; see my Medium post where I elaborate on why it is interesting https://medium.com/@ellisbrown/name2gender-introduction-626d89378fb0.
 
 I have implemented a Naïve-Bayes approach and an Char-RNN approach, which are contained in their respective subdirectories.
+
+### Table of Contents
+- <a href='https://goo.gl/1dxe5A'>Medium post</a>
+- <a href='#naïve-bayes-naive_bayes'>Naïve Bayes</a>
+- <a href=‘#char-rnn-rnn’>Char-Rann</a>
+- <a href=‘#dataset-data’>Dataset</a>
+- <a href=‘#acknowledgement’>Acknowlegement</a>
 
 
 ## Naïve-Bayes [/naive_bayes](https://github.com/ellisbrown/name2gender/tree/master/naive_bayes)
