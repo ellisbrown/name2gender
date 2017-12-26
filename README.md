@@ -13,10 +13,10 @@ I have implemented a Naïve-Bayes approach and an Char-RNN approach, which are c
 
 
 ## Naïve-Bayes [/naive_bayes](https://github.com/ellisbrown/name2gender/tree/master/naive_bayes)
-In this approach, I defined features of first names (last two letters, count of vowels, etc.) to use to learn the genders. I explain this in more detail in [my blog post](https://medium.com/@ellisbrown/name2gender-introduction-626d89378fb0#9dfc) and in the [/naive_bayes subdirectory](https://github.com/ellisbrown/name2gender/blob/master/naive_bayes).
+In this approach, I defined features of first names (last two letters, count of vowels, etc.) to use to learn the genders. I explain this in more detail [here in my blog post](https://medium.com/@ellisbrown/name2gender-introduction-626d89378fb0#9dfc) and in the [/naive_bayes subdirectory](https://github.com/ellisbrown/name2gender/blob/master/naive_bayes).
 
 ## Char-RNN [/rnn](https://github.com/ellisbrown/name2gender/tree/master/rnn)
-In this second approach, I feed characters in a name one by one through a character level recurrent neural network built in PyTorch in the hopes of learning the latent space of all character sequences that denote gender without having to define them a priori. I explain this in more detail in [my blog post](https://medium.com/@ellisbrown/name2gender-introduction-626d89378fb0#019f) in the [/rnn subdirectory](https://github.com/ellisbrown/name2gender/blob/master/rnn).
+In this second approach, I feed characters in a name one by one through a character level recurrent neural network built in PyTorch in the hopes of learning the latent space of all character sequences that denote gender without having to define them a priori. I explain this in more detail [here in my blog post](https://medium.com/@ellisbrown/name2gender-introduction-626d89378fb0#019f) in the [/rnn subdirectory](https://github.com/ellisbrown/name2gender/blob/master/rnn).
 
 ## Dataset [/data](https://github.com/ellisbrown/name2gender/tree/master/data)
 I have aggregated multiple smaller datasets representing various cultures into a large dataset (~135k instances) of gender-labeled first names. See [data/**dataset.ipynb**](https://github.com/ellisbrown/name2gender/blob/master/data/dataset.ipynb) for further information on how I pulled it together. Note: I did not spend a ton of time going through and pruning this dataset, so it is probably not amazing or particularly clean (I would greatly appreciate any PR’s if anyone cares or has the time!).
