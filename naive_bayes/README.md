@@ -5,6 +5,8 @@ In this approach, I defined features of first names (last two letters, count of 
 
 ## Features
 See the [_gender_features](https://github.com/ellisbrown/name2gender/blob/master/naive_bayes/data_util.py#L42) function for the feature implementation.
+
+*example:* "ellis"
 #### last letter
 * "last_letter": 's'
 #### first letter
