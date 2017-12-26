@@ -4,12 +4,12 @@ See [demo.ipynb](https://github.com/ellisbrown/name2gender/blob/master/rnn/demo.
 This approach attempts to learn the various gender-revealing sequences without having to explicitly specify them.
 
 ### Tensor Representation
-In order to represent each character, we create a one-hot vector of size `<N_LETTERS>` (a one-hot vector is filled with 0s except for a 1 at the index of the current letter, e.g. `"c" = <0 0 1 0 0 ... 0>)`.
+In order to represent each character, I create a one-hot vector of size `<N_LETTERS>` (a one-hot vector is filled with 0s except for a 1 at the index of the current letter, e.g. `"c" = <0 0 1 0 0 ... 0>)`.
 
 ### Model
 The RNN module is based on PyTorch’s [name nationality classification example](https://goo.gl/BB7h2A).
 
-It is a simple network with 2 linear layers operating on an input and hidden state, and a LogSoftmax layer on the output. We use 128 hidden units.
+It is a simple network with 2 linear layers operating on an input and hidden state, and a LogSoftmax layer on the output. I use 128 hidden units.
 
 ![RNN Module Structure](https://i.imgur.com/Z2xbySO.png)
 
